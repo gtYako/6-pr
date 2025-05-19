@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Багманова</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav_fill">
+        <div class="nav_logo_burger">
+          <a href="#" class="logo">
+            <img src="./img/Logo.png" alt="Logo" />
+          </a>
+          <button class="burger" id="burgerBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <ul class="nav_menu">
+          <li><a href="#">DISCOVER</a></li>
+          <li><a href="#">CREATORS</a></li>
+          <li><a href="#">SELL</a></li>
+          <li><a href="#">STATS</a></li>
+        </ul>
+        <div class="nav_right">
+          <div class="searchall">
+            <img src="./img/search.png" alt="Search" />
+            <input type="search" placeholder="Search Art Work / Creator" />
+          </div>
+          <a href="#" class="btn">CONNECT WALLET</a>
+        </div>
+      </div>
+      <div class="mobile_menu" id="mobileMenu">
+        <ul>
+          <li><a href="">DISCOVER</a></li>
+          <li><a href="">CREATORS</a></li>
+          <li><a href="">SELL</a></li>
+          <li><a href="">STATS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="section_one">
+      <div class="container">
+        <h2>Discover NFTs</h2>
+        <div class="buttons">
+          <a href="#" class="button" id="sort-color">
+            <img src="./img/btn1.png" alt="Sort by Color" />Сортировать по цвету
+          </a>
+          <a href="#" class="button" id="sort-name">
+            <img src="./img/img2.png" alt="Sort by Name" />Сортировать по названию
+          </a>
+          <a href="#" class="button" id="sort-price">
+            <img src="./img/img3.png" alt="Sort by Price" />Сортировать по цене
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section_two">
+      <div class="container">
+        <div class="cards" id="cards">
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer_fill">
+          <div class="top">
+            <img src="./img/Logofooter.png" alt="Footer Logo" />
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Term & Conditions</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <hr />
+          <div class="bottom">
+            <p>© 2023 EATLY All Rights Reserved.</p>
+            <ul>
+              <li><img src="./img/insta.png" alt="Instagram" /></li>
+              <li><img src="./img/in.png" alt="LinkedIn" /></li>
+              <li><img src="./img/facebok.png" alt="Facebook" /></li>
+              <li><img src="./img/twit.png" alt="Twitter" /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const cardsData = [
+        { img: "./img/card1.png", name: "Azure Dream", price: 2.15, color: 1 },
+        { img: "./img/card2.png", name: "Crimson Sun", price: 1.75, color: 2 },
+        { img: "./img/card3.png", name: "Emerald Wave", price: 3.10, color: 3 },
+        { img: "./img/card4.png", name: "Golden Sky", price: 2.50, color: 4 },
+        { img: "./img/card1.png", name: "Blue Mirage", price: 1.60, color: 1 },
+        { img: "./img/card2.png", name: "Red Mirage", price: 2.25, color: 2 },
+        { img: "./img/card3.png", name: "Green Mirage", price: 2.00, color: 3 },
+        { img: "./img/card4.png", name: "Yellow Mirage", price: 1.90, color: 4 },
+        { img: "./img/card1.png", name: "Blue Ocean", price: 3.30, color: 1 },
+        { img: "./img/card2.png", name: "Red Ocean", price: 2.80, color: 2 },
+        { img: "./img/card3.png", name: "Green Ocean", price: 1.50, color: 3 },
+        { img: "./img/card4.png", name: "Yellow Ocean", price: 2.10, color: 4 },
+      ];
+
+      function renderCards(data) {
+        const cards = document.getElementById("cards");
+        cards.innerHTML = "";
+        data.forEach((card) => {
+          cards.innerHTML += `
+            <div class="card">
+              <img src="${card.img}" alt="${card.name}" />
+              <h3>${card.name}</h3>
+              <div class="btm">
+                <div class="left">
+                  <p class="top">Current bid</p>
+                  <div class="bottom">
+                    <img src="./img/mdi_ethereum.png" alt="Ethereum" />
+                    <p>${card.price}</p>
+                  </div>
+                </div>
+                <div class="right">
+                  <a href="#" class="card_btm">PLACE BID</a>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      document.getElementById("sort-color").addEventListener("click", (e) => {
+        e.preventDefault();
+        const sorted = [...cardsData].sort((a, b) => a.color - b.color);
+        renderCards(sorted);
+      });
+
+      document.getElementById("sort-name").addEventListener("click", (e) => {
+        e.preventDefault();
+        const sorted = [...cardsData].sort((a, b) => a.name.localeCompare(b.name));
+        renderCards(sorted);
+      });
+
+      document.getElementById("sort-price").addEventListener("click", (e) => {
+        e.preventDefault();
+        const sorted = [...cardsData].sort((a, b) => a.price - b.price);
+        renderCards(sorted);
+      });
+
+      renderCards(cardsData);
+
+
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      burgerBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('open');
+        burgerBtn.classList.toggle('open');
+        document.body.classList.toggle('noscroll', mobileMenu.classList.contains('open'));
+      });
+
+      document.addEventListener('click', function(e) {
+        if (
+          mobileMenu.classList.contains('open') &&
+          !mobileMenu.contains(e.target) &&
+          !burgerBtn.contains(e.target)
+        ) {
+          mobileMenu.classList.remove('open');
+          burgerBtn.classList.remove('open');
+          document.body.classList.remove('noscroll');
+        }
+        const searchInput = document.querySelector('.searchall input[type="search"]');
+searchInput.addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const filtered = cardsData.filter(card =>
+    card.name.toLowerCase().includes(query)
+  );
+  renderCards(filtered);
+});
+      });
+    </script>
+  </body>
+</html>

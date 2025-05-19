@@ -1,0 +1,480 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+}
+
+body.noscroll {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- НАВИГАЦИЯ --- */
+nav {
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px 95px;
+  position: relative;
+  z-index: 10;
+}
+
+.nav_fill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+}
+
+/* Логотип + бургер в одном ряду */
+.nav_logo_burger {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Увеличьте это значение для большего расстояния между логотипом и бургером */
+}
+
+/* Логотип */
+.logo img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* Меню */
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+
+.nav_menu li a {
+  font-weight: 500;
+  font-size: 17px;
+  color: #606060;
+  transition: all 0.4s ease;
+}
+
+.nav_menu li a:hover {
+  color: #1f1f1f;
+}
+
+.nav_right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.searchall {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  border-radius: 14px;
+  background-color: #ededed;
+  padding: 18px 80px 18px 22px;
+}
+
+.searchall input {
+  border: 0;
+  background-color: #ededed;
+}
+
+.searchall input:focus {
+  outline: none;
+  border: none;
+}
+
+.searchall input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+a.btn {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 16px;
+  padding: 16px 24px;
+  background: #141416;
+  transition: all 0.4s ease;
+}
+
+a.btn:hover {
+  background: #444449;
+}
+
+/* --- Бургер --- */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: 40px; /* ДОПОЛНИТЕЛЬНОЕ РАССТОЯНИЕ между лого и бургером */
+}
+.burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #141416;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Мобильное меню --- */
+.mobile_menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  max-width: 260px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.07);
+  z-index: 1000;
+  padding: 80px 32px 32px 32px;
+  transition: transform 0.3s;
+  transform: translateX(100%);
+}
+.mobile_menu.open {
+  display: block;
+  transform: translateX(0);
+}
+.mobile_menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.mobile_menu ul li a {
+  font-size: 20px;
+  color: #141416;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.mobile_menu ul li a:hover {
+  color: #606060;
+}
+
+/* --- Остальной CSS (карточки, футер, секции) --- */
+
+.section_one {
+  font-family: "Poppins", sans-serif;
+}
+
+.section_one h2 {
+  font-weight: 600;
+  font-size: 45px;
+  color: #141416;
+  margin: 155px 0 45px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 33px;
+  margin-bottom: 100px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #1a202c;
+  border: 2.35px solid #141416;
+  border-radius: 14px;
+  transition: all 0.4s ease;
+}
+
+.button:hover {
+  border: 2.35px solid #ffffff;
+}
+
+.section_two {
+  font-family: "Poppins", sans-serif;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 450px;
+}
+
+.card {
+  padding: 15px 15px 20px 15px;
+  border-radius: 24px;
+  box-shadow: 39px 12px 59px 0 rgba(199, 199, 199, 0.6);
+  background: #fff;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  margin-bottom: 19px;
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+.card h3 {
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 140%;
+  color: #141416;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.btm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left .top {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+
+.left .bottom {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #141416;
+}
+
+.right a.card_btm {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  background: #141416;
+  transition: all 0.4s ease;
+}
+
+.right a.card_btm:hover {
+  background: #494952;
+}
+
+.footer {
+  padding: 92px 96px 81px 96px;
+  background-color: #141416;
+  color: #b9b9b9;
+}
+
+.footer .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.footer .top ul {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.footer .top ul li a {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 150%;
+  text-transform: capitalize;
+  color: #b9b9b9;
+  transition: all 0.4s ease;
+}
+
+.footer .top ul li a:hover {
+  color: #807a7a;
+}
+
+.footer hr {
+  border: 1px solid #818181;
+  width: 1246px;
+  height: 0;
+  opacity: 0.25;
+  margin-bottom: 57px;
+}
+
+.footer .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .bottom p {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 147%;
+  color: #999;
+}
+
+.footer .bottom ul {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 95vw;
+  }
+  nav {
+    padding: 25px 10vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+  }
+  nav {
+    padding: 16px 4vw;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    width: 375px;
+  }
+  .container {
+    max-width: 350px;
+  }
+  nav {
+    padding: 12px 8px;
+  }
+  .nav_fill {
+    gap: 0;
+    justify-content: flex-start;
+  }
+  .nav_logo_burger {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .nav_menu {
+    display: none !important;
+  }
+  .nav_right {
+    display: none !important;
+  }
+  .burger {
+    display: flex !important;
+    margin-left:200px;
+  }
+  .mobile_menu {
+    display: none;
+  }
+  .mobile_menu.open {
+    display: block;
+  }
+  .section_one h2 {
+    margin: 7px 0 45px;
+    font-size: 28px;
+  }
+  .buttons {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .footer {
+    padding: 10px 10px 10px 10px;
+  }
+  .footer .top {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .footer .top ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer .top ul li a {
+    font-size: 12px;
+  }
+  .footer hr {
+    width: 350px;
+    margin-bottom: 20px;
+  }
+  .footer .bottom p {
+    font-size: 12px;
+  }
+  .footer .bottom ul {
+    gap: 20px;
+  }
+  .nav_right {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .searchall {
+    width: 100%;
+    padding: 12px 16px;
+    gap: 12px;
+    background-color: #ededed;
+  }
+  
+  .searchall input {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+}
